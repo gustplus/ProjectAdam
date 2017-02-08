@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D384FD91E48DB32006EB5F8 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D384FD81E48DB32006EB5F8 /* ViewUtils.m */; };
+		6D6D6B691E420A190035E4C3 /* CircleSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B681E420A190035E4C3 /* CircleSlideView.m */; };
+		6D6D6B6D1E420B240035E4C3 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B6C1E420B240035E4C3 /* MathUtils.m */; };
+		6D6D6B711E420F720035E4C3 /* CircleSlideData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B701E420F720035E4C3 /* CircleSlideData.m */; };
+		6D6D6B741E421B260035E4C3 /* GraphicUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B731E421B260035E4C3 /* GraphicUtils.m */; };
+		6D74E2A51E4325E200DB8444 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2A41E4325E200DB8444 /* ChatViewController.m */; };
+		6D74E2A81E4326A900DB8444 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2A71E4326A900DB8444 /* ChatMessage.m */; };
+		6D74E2AE1E43361100DB8444 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2AD1E43361100DB8444 /* MessageCell.m */; };
+		6D74E2B81E4361F200DB8444 /* wechatback1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B41E4361F200DB8444 /* wechatback1@2x.png */; };
+		6D74E2B91E4361F200DB8444 /* wechatback1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B51E4361F200DB8444 /* wechatback1@3x.png */; };
+		6D74E2BA1E4361F200DB8444 /* wechatback2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B61E4361F200DB8444 /* wechatback2@2x.png */; };
+		6D74E2BB1E4361F200DB8444 /* wechatback2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B71E4361F200DB8444 /* wechatback2@3x.png */; };
+		6D74E2BD1E43697300DB8444 /* Marco.h in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2BC1E43666500DB8444 /* Marco.h */; };
+		6D74E2C01E436A2A00DB8444 /* collection4_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2BE1E436A2A00DB8444 /* collection4_10@2x.png */; };
+		6D74E2C11E436A2A00DB8444 /* collection4_10@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2BF1E436A2A00DB8444 /* collection4_10@3x.png */; };
+		6D76D5161E471A0C0067C85B /* wechatvoice3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D76D5141E471A0C0067C85B /* wechatvoice3@2x.png */; };
+		6D76D5171E471A0C0067C85B /* wechatvoice3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D76D5151E471A0C0067C85B /* wechatvoice3@3x.png */; };
+		6D7B8A591E44CC810095FA73 /* SpeechRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B8A581E44CC810095FA73 /* SpeechRecognizer.m */; };
+		6D7B8A5C1E44D0F10095FA73 /* VoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B8A5B1E44D0F10095FA73 /* VoiceView.m */; };
+		6D7B8A5F1E44D21D0095FA73 /* LoopQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B8A5E1E44D21D0095FA73 /* LoopQueue.m */; };
+		6DAFB9531E09697900E2DE85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9521E09697900E2DE85 /* main.m */; };
+		6DAFB9561E09697900E2DE85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9551E09697900E2DE85 /* AppDelegate.m */; };
+		6DAFB9591E09697900E2DE85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9581E09697900E2DE85 /* ViewController.m */; };
+		6DAFB95C1E09697900E2DE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95A1E09697900E2DE85 /* Main.storyboard */; };
+		6DAFB95E1E09697900E2DE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95D1E09697900E2DE85 /* Assets.xcassets */; };
+		6DAFB9611E09697900E2DE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95F1E09697900E2DE85 /* LaunchScreen.storyboard */; };
+		6DAFB96C1E0969CE00E2DE85 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB96B1E0969CE00E2DE85 /* libz.tbd */; };
+		6DAFB96E1E0969DB00E2DE85 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB96D1E0969DB00E2DE85 /* CoreTelephony.framework */; };
+		6DAFB9701E096A1B00E2DE85 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB96F1E096A1B00E2DE85 /* CoreLocation.framework */; };
+		6DAFB9721E096A2600E2DE85 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9711E096A2600E2DE85 /* AVFoundation.framework */; };
+		6DAFB9741E096A2E00E2DE85 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9731E096A2E00E2DE85 /* AddressBook.framework */; };
+		6DAFB9761E096A3700E2DE85 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9751E096A3700E2DE85 /* AudioToolbox.framework */; };
+		6DAFB9781E096A4200E2DE85 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9771E096A4200E2DE85 /* SystemConfiguration.framework */; };
+		6DAFB97A1E096A4E00E2DE85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9791E096A4E00E2DE85 /* QuartzCore.framework */; };
+		6DAFB97C1E096A5700E2DE85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB97B1E096A5700E2DE85 /* UIKit.framework */; };
+		6DAFB97E1E096A5F00E2DE85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB97D1E096A5F00E2DE85 /* Foundation.framework */; };
+		6DAFB9801E096A6A00E2DE85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB97F1E096A6A00E2DE85 /* CoreGraphics.framework */; };
+		6DC1D9F11E0C0F1D008281F4 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAFB9691E0969A900E2DE85 /* iflyMSC.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6D384FD71E48DB32006EB5F8 /* ViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewUtils.h; path = Utils/ViewUtils.h; sourceTree = "<group>"; };
+		6D384FD81E48DB32006EB5F8 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewUtils.m; path = Utils/ViewUtils.m; sourceTree = "<group>"; };
+		6D6D6B671E420A190035E4C3 /* CircleSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleSlideView.h; path = Views/CircleSlideView.h; sourceTree = "<group>"; };
+		6D6D6B681E420A190035E4C3 /* CircleSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleSlideView.m; path = Views/CircleSlideView.m; sourceTree = "<group>"; };
+		6D6D6B6B1E420B240035E4C3 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathUtils.h; path = Utils/MathUtils.h; sourceTree = "<group>"; };
+		6D6D6B6C1E420B240035E4C3 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MathUtils.m; path = Utils/MathUtils.m; sourceTree = "<group>"; };
+		6D6D6B6F1E420F720035E4C3 /* CircleSlideData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleSlideData.h; path = Models/CircleSlideData.h; sourceTree = "<group>"; };
+		6D6D6B701E420F720035E4C3 /* CircleSlideData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleSlideData.m; path = Models/CircleSlideData.m; sourceTree = "<group>"; };
+		6D6D6B721E421B260035E4C3 /* GraphicUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicUtils.h; path = Utils/GraphicUtils.h; sourceTree = "<group>"; };
+		6D6D6B731E421B260035E4C3 /* GraphicUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphicUtils.m; path = Utils/GraphicUtils.m; sourceTree = "<group>"; };
+		6D74E2A31E4325E200DB8444 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		6D74E2A41E4325E200DB8444 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		6D74E2A61E4326A900DB8444 /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatMessage.h; path = Models/ChatMessage.h; sourceTree = "<group>"; };
+		6D74E2A71E4326A900DB8444 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatMessage.m; path = Models/ChatMessage.m; sourceTree = "<group>"; };
+		6D74E2AC1E43361100DB8444 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		6D74E2AD1E43361100DB8444 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		6D74E2B41E4361F200DB8444 /* wechatback1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback1@2x.png"; path = "Images/wechatback1@2x.png"; sourceTree = "<group>"; };
+		6D74E2B51E4361F200DB8444 /* wechatback1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback1@3x.png"; path = "Images/wechatback1@3x.png"; sourceTree = "<group>"; };
+		6D74E2B61E4361F200DB8444 /* wechatback2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback2@2x.png"; path = "Images/wechatback2@2x.png"; sourceTree = "<group>"; };
+		6D74E2B71E4361F200DB8444 /* wechatback2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback2@3x.png"; path = "Images/wechatback2@3x.png"; sourceTree = "<group>"; };
+		6D74E2BC1E43666500DB8444 /* Marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Marco.h; path = Utils/Marco.h; sourceTree = "<group>"; };
+		6D74E2BE1E436A2A00DB8444 /* collection4_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "collection4_10@2x.png"; path = "Images/collection4_10@2x.png"; sourceTree = "<group>"; };
+		6D74E2BF1E436A2A00DB8444 /* collection4_10@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "collection4_10@3x.png"; path = "Images/collection4_10@3x.png"; sourceTree = "<group>"; };
+		6D76D5141E471A0C0067C85B /* wechatvoice3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatvoice3@2x.png"; sourceTree = "<group>"; };
+		6D76D5151E471A0C0067C85B /* wechatvoice3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechatvoice3@3x.png"; sourceTree = "<group>"; };
+		6D7B8A571E44CC810095FA73 /* SpeechRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechRecognizer.h; path = Utils/SpeechRecognizer.h; sourceTree = "<group>"; };
+		6D7B8A581E44CC810095FA73 /* SpeechRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechRecognizer.m; path = Utils/SpeechRecognizer.m; sourceTree = "<group>"; };
+		6D7B8A5A1E44D0F10095FA73 /* VoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceView.h; path = Views/VoiceView.h; sourceTree = "<group>"; };
+		6D7B8A5B1E44D0F10095FA73 /* VoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoiceView.m; path = Views/VoiceView.m; sourceTree = "<group>"; };
+		6D7B8A5D1E44D21D0095FA73 /* LoopQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoopQueue.h; path = Models/LoopQueue.h; sourceTree = "<group>"; };
+		6D7B8A5E1E44D21D0095FA73 /* LoopQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoopQueue.m; path = Models/LoopQueue.m; sourceTree = "<group>"; };
+		6DAFB94E1E09697900E2DE85 /* ProjectAdam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectAdam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DAFB9521E09697900E2DE85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6DAFB9541E09697900E2DE85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6DAFB9551E09697900E2DE85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6DAFB9571E09697900E2DE85 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6DAFB9581E09697900E2DE85 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6DAFB95B1E09697900E2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DAFB95D1E09697900E2DE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6DAFB9601E09697900E2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6DAFB9621E09697900E2DE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DAFB9691E0969A900E2DE85 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../../../../Downloads/iOS_aisound_1135_5859302c/lib/iflyMSC.framework; sourceTree = "<group>"; };
+		6DAFB96B1E0969CE00E2DE85 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6DAFB96D1E0969DB00E2DE85 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6DAFB96F1E096A1B00E2DE85 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6DAFB9711E096A2600E2DE85 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6DAFB9731E096A2E00E2DE85 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		6DAFB9751E096A3700E2DE85 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6DAFB9771E096A4200E2DE85 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6DAFB9791E096A4E00E2DE85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6DAFB97B1E096A5700E2DE85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6DAFB97D1E096A5F00E2DE85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6DAFB97F1E096A6A00E2DE85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DAFB94B1E09697900E2DE85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DC1D9F11E0C0F1D008281F4 /* iflyMSC.framework in Frameworks */,
+				6DAFB96C1E0969CE00E2DE85 /* libz.tbd in Frameworks */,
+				6DAFB9801E096A6A00E2DE85 /* CoreGraphics.framework in Frameworks */,
+				6DAFB97E1E096A5F00E2DE85 /* Foundation.framework in Frameworks */,
+				6DAFB97C1E096A5700E2DE85 /* UIKit.framework in Frameworks */,
+				6DAFB97A1E096A4E00E2DE85 /* QuartzCore.framework in Frameworks */,
+				6DAFB9781E096A4200E2DE85 /* SystemConfiguration.framework in Frameworks */,
+				6DAFB9761E096A3700E2DE85 /* AudioToolbox.framework in Frameworks */,
+				6DAFB9741E096A2E00E2DE85 /* AddressBook.framework in Frameworks */,
+				6DAFB9721E096A2600E2DE85 /* AVFoundation.framework in Frameworks */,
+				6DAFB9701E096A1B00E2DE85 /* CoreLocation.framework in Frameworks */,
+				6DAFB96E1E0969DB00E2DE85 /* CoreTelephony.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D6D6B661E4209EF0035E4C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6D74E2AC1E43361100DB8444 /* MessageCell.h */,
+				6D74E2AD1E43361100DB8444 /* MessageCell.m */,
+				6D6D6B671E420A190035E4C3 /* CircleSlideView.h */,
+				6D6D6B681E420A190035E4C3 /* CircleSlideView.m */,
+				6D7B8A5A1E44D0F10095FA73 /* VoiceView.h */,
+				6D7B8A5B1E44D0F10095FA73 /* VoiceView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6D6D6B6A1E420AFC0035E4C3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6D6D6B6B1E420B240035E4C3 /* MathUtils.h */,
+				6D6D6B6C1E420B240035E4C3 /* MathUtils.m */,
+				6D6D6B721E421B260035E4C3 /* GraphicUtils.h */,
+				6D6D6B731E421B260035E4C3 /* GraphicUtils.m */,
+				6D74E2BC1E43666500DB8444 /* Marco.h */,
+				6D7B8A571E44CC810095FA73 /* SpeechRecognizer.h */,
+				6D7B8A581E44CC810095FA73 /* SpeechRecognizer.m */,
+				6D384FD71E48DB32006EB5F8 /* ViewUtils.h */,
+				6D384FD81E48DB32006EB5F8 /* ViewUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		6D6D6B6E1E420F380035E4C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6D6D6B6F1E420F720035E4C3 /* CircleSlideData.h */,
+				6D6D6B701E420F720035E4C3 /* CircleSlideData.m */,
+				6D74E2A61E4326A900DB8444 /* ChatMessage.h */,
+				6D74E2A71E4326A900DB8444 /* ChatMessage.m */,
+				6D7B8A5D1E44D21D0095FA73 /* LoopQueue.h */,
+				6D7B8A5E1E44D21D0095FA73 /* LoopQueue.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6D74E2AF1E43618100DB8444 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D76D5141E471A0C0067C85B /* wechatvoice3@2x.png */,
+				6D76D5151E471A0C0067C85B /* wechatvoice3@3x.png */,
+				6D74E2BE1E436A2A00DB8444 /* collection4_10@2x.png */,
+				6D74E2BF1E436A2A00DB8444 /* collection4_10@3x.png */,
+				6D74E2B41E4361F200DB8444 /* wechatback1@2x.png */,
+				6D74E2B51E4361F200DB8444 /* wechatback1@3x.png */,
+				6D74E2B61E4361F200DB8444 /* wechatback2@2x.png */,
+				6D74E2B71E4361F200DB8444 /* wechatback2@3x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6DAFB9451E09697900E2DE85 = {
+			isa = PBXGroup;
+			children = (
+				6DAFB9501E09697900E2DE85 /* ProjectAdam */,
+				6DAFB94F1E09697900E2DE85 /* Products */,
+				6DAFB9681E0969A900E2DE85 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6DAFB94F1E09697900E2DE85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DAFB94E1E09697900E2DE85 /* ProjectAdam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DAFB9501E09697900E2DE85 /* ProjectAdam */ = {
+			isa = PBXGroup;
+			children = (
+				6D74E2AF1E43618100DB8444 /* Images */,
+				6D6D6B6E1E420F380035E4C3 /* Models */,
+				6D6D6B6A1E420AFC0035E4C3 /* Utils */,
+				6D6D6B661E4209EF0035E4C3 /* Views */,
+				6DAFB9541E09697900E2DE85 /* AppDelegate.h */,
+				6DAFB9551E09697900E2DE85 /* AppDelegate.m */,
+				6DAFB9571E09697900E2DE85 /* ViewController.h */,
+				6DAFB9581E09697900E2DE85 /* ViewController.m */,
+				6DAFB95A1E09697900E2DE85 /* Main.storyboard */,
+				6DAFB95D1E09697900E2DE85 /* Assets.xcassets */,
+				6DAFB95F1E09697900E2DE85 /* LaunchScreen.storyboard */,
+				6DAFB9621E09697900E2DE85 /* Info.plist */,
+				6DAFB9511E09697900E2DE85 /* Supporting Files */,
+				6D74E2A31E4325E200DB8444 /* ChatViewController.h */,
+				6D74E2A41E4325E200DB8444 /* ChatViewController.m */,
+			);
+			path = ProjectAdam;
+			sourceTree = "<group>";
+		};
+		6DAFB9511E09697900E2DE85 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6DAFB9521E09697900E2DE85 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6DAFB9681E0969A900E2DE85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DAFB97F1E096A6A00E2DE85 /* CoreGraphics.framework */,
+				6DAFB97D1E096A5F00E2DE85 /* Foundation.framework */,
+				6DAFB97B1E096A5700E2DE85 /* UIKit.framework */,
+				6DAFB9791E096A4E00E2DE85 /* QuartzCore.framework */,
+				6DAFB9771E096A4200E2DE85 /* SystemConfiguration.framework */,
+				6DAFB9751E096A3700E2DE85 /* AudioToolbox.framework */,
+				6DAFB9731E096A2E00E2DE85 /* AddressBook.framework */,
+				6DAFB9711E096A2600E2DE85 /* AVFoundation.framework */,
+				6DAFB96F1E096A1B00E2DE85 /* CoreLocation.framework */,
+				6DAFB96D1E0969DB00E2DE85 /* CoreTelephony.framework */,
+				6DAFB96B1E0969CE00E2DE85 /* libz.tbd */,
+				6DAFB9691E0969A900E2DE85 /* iflyMSC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DAFB94D1E09697900E2DE85 /* ProjectAdam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DAFB9651E09697900E2DE85 /* Build configuration list for PBXNativeTarget "ProjectAdam" */;
+			buildPhases = (
+				6DAFB94A1E09697900E2DE85 /* Sources */,
+				6DAFB94B1E09697900E2DE85 /* Frameworks */,
+				6DAFB94C1E09697900E2DE85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProjectAdam;
+			productName = ProjectAdam;
+			productReference = 6DAFB94E1E09697900E2DE85 /* ProjectAdam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DAFB9461E09697900E2DE85 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "___GUSTPLUS___";
+				TargetAttributes = {
+					6DAFB94D1E09697900E2DE85 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 3SSQ63V5GR;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6DAFB9491E09697900E2DE85 /* Build configuration list for PBXProject "ProjectAdam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6DAFB9451E09697900E2DE85;
+			productRefGroup = 6DAFB94F1E09697900E2DE85 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DAFB94D1E09697900E2DE85 /* ProjectAdam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6DAFB94C1E09697900E2DE85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D76D5171E471A0C0067C85B /* wechatvoice3@3x.png in Resources */,
+				6D74E2BA1E4361F200DB8444 /* wechatback2@2x.png in Resources */,
+				6DAFB9611E09697900E2DE85 /* LaunchScreen.storyboard in Resources */,
+				6D74E2C01E436A2A00DB8444 /* collection4_10@2x.png in Resources */,
+				6D74E2C11E436A2A00DB8444 /* collection4_10@3x.png in Resources */,
+				6D74E2BB1E4361F200DB8444 /* wechatback2@3x.png in Resources */,
+				6D76D5161E471A0C0067C85B /* wechatvoice3@2x.png in Resources */,
+				6D74E2B81E4361F200DB8444 /* wechatback1@2x.png in Resources */,
+				6D74E2B91E4361F200DB8444 /* wechatback1@3x.png in Resources */,
+				6DAFB95E1E09697900E2DE85 /* Assets.xcassets in Resources */,
+				6DAFB95C1E09697900E2DE85 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DAFB94A1E09697900E2DE85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D7B8A5F1E44D21D0095FA73 /* LoopQueue.m in Sources */,
+				6D74E2BD1E43697300DB8444 /* Marco.h in Sources */,
+				6D6D6B741E421B260035E4C3 /* GraphicUtils.m in Sources */,
+				6D74E2AE1E43361100DB8444 /* MessageCell.m in Sources */,
+				6DAFB9591E09697900E2DE85 /* ViewController.m in Sources */,
+				6D6D6B691E420A190035E4C3 /* CircleSlideView.m in Sources */,
+				6D384FD91E48DB32006EB5F8 /* ViewUtils.m in Sources */,
+				6D6D6B711E420F720035E4C3 /* CircleSlideData.m in Sources */,
+				6DAFB9561E09697900E2DE85 /* AppDelegate.m in Sources */,
+				6DAFB9531E09697900E2DE85 /* main.m in Sources */,
+				6D6D6B6D1E420B240035E4C3 /* MathUtils.m in Sources */,
+				6D74E2A51E4325E200DB8444 /* ChatViewController.m in Sources */,
+				6D7B8A5C1E44D0F10095FA73 /* VoiceView.m in Sources */,
+				6D7B8A591E44CC810095FA73 /* SpeechRecognizer.m in Sources */,
+				6D74E2A81E4326A900DB8444 /* ChatMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6DAFB95A1E09697900E2DE85 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DAFB95B1E09697900E2DE85 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6DAFB95F1E09697900E2DE85 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DAFB9601E09697900E2DE85 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6DAFB9631E09697900E2DE85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6DAFB9641E09697900E2DE85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6DAFB9661E09697900E2DE85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3SSQ63V5GR;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/shizhan/Downloads/iOS_aisound_1135_5859302c/lib;
+				INFOPLIST_FILE = ProjectAdam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gp.ProjectAdam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6DAFB9671E09697900E2DE85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3SSQ63V5GR;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/shizhan/Downloads/iOS_aisound_1135_5859302c/lib;
+				INFOPLIST_FILE = ProjectAdam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gp.ProjectAdam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DAFB9491E09697900E2DE85 /* Build configuration list for PBXProject "ProjectAdam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DAFB9631E09697900E2DE85 /* Debug */,
+				6DAFB9641E09697900E2DE85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DAFB9651E09697900E2DE85 /* Build configuration list for PBXNativeTarget "ProjectAdam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DAFB9661E09697900E2DE85 /* Debug */,
+				6DAFB9671E09697900E2DE85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DAFB9461E09697900E2DE85 /* Project object */;
+}
