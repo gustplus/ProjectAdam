@@ -8,7 +8,39 @@
 
 #import <UIKit/UIKit.h>
 #import "GraphicUtils.h"
-#import "CircleSlideData.h"
+
+@class CircleSlideData;
+
+typedef NS_ENUM(NSUInteger, SlideState)
+{
+    kStateNone,
+    kStateUp,
+    kStateDown,
+    kStateReachBottom,
+    kStateReachTop
+};
+
+@interface CircleSlideWrapper : CircleData
+
+@property(strong, nonatomic)CircleSlideData *data;
+@property(assign, nonatomic)SlideState state;
+@property(assign, nonatomic)NSInteger preAngle;
+
+-(void)setColorWithR:(float)red G:(float)green B:(float)blue;
+
+-(BOOL) isPointIn:(CGPoint)point;
+-(CGPoint)headPoint;
+-(NSInteger)pointAngle:(CGPoint)point;
+
+-(void)beginTouch:(CGPoint) point;
+-(void)moveTouch:(CGPoint) point;
+-(void)endTouch:(CGPoint) point;
+
+-(NSInteger)getStartAngle;
+-(NSInteger)getEndAngle;
+
+@end
+
 
 @interface CircleSlideView : UIView
 

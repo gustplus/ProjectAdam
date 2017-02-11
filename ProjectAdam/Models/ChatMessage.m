@@ -8,8 +8,40 @@
 
 #import "ChatMessage.h"
 #import "Marco.h"
+#import "Config.h"
 
-@implementation ChatMessage
+@implementation BaseChatMessage
+
+-(instancetype)initWithType:(MsgType) type
+{
+    self = [super init];
+    if(self)
+    {
+        _type = type;
+    }
+    return self;
+}
+
+-(CGFloat)heightOfCell
+{
+    return 0;
+}
+
+@end
+
+@implementation TextChatMessage
+
+-(instancetype)init
+{
+    self = [super initWithType:kMsgTypeText];
+    
+    return self;
+}
+
+-(CGFloat)heightOfCell
+{
+    return [self getMessageTextSizeWithWidth: ScreenWidth - kTextMargin].height + 2 * kCellMarginVertical;
+}
 
 -(CGSize) getMessageTextSizeWithWidth:(CGFloat)width
 {

@@ -10,7 +10,7 @@
 #import "CircleSlideView.h"
 #import "VoiceView.h"
 
-@interface ViewController : UIViewController
+@interface SettingViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet CircleSlideView *settiingView;
 

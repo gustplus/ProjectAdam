@@ -6,7 +6,7 @@
 //  Copyright © 2016年 ___GUSTPLUS___. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SettingViewController.h"
 #import "GraphicUtils.h"
 #import "CircleSlideData.h"
 #import "VoiceView.h"
@@ -16,10 +16,10 @@ static NSString *kRecognizerEndTimeKey = @"endtime";
 static NSString *kRecognizerCancelTimeKey = @"canceltime";
 static NSString *kRecognizerSampleRateKey = @"samplerate";
 
-@interface ViewController ()<SliderDelegate>
+@interface SettingViewController ()<SliderDelegate>
 @end
 
-@implementation ViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,9 +28,11 @@ static NSString *kRecognizerSampleRateKey = @"samplerate";
     self.settiingView.highlightColor = ColorMake(1, 1, 1);
     
     self.settiingView.backgroundColor = [UIColor darkGrayColor];
+    
+    [self setupSettings];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)setupSettings
 {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger cancelTime = [ud integerForKey:kRecognizerCancelTimeKey];
@@ -63,7 +65,6 @@ static NSString *kRecognizerSampleRateKey = @"samplerate";
     Color blue = ColorMake(0, 0, 1);
     [self.settiingView addSlider:data3 WithColor:blue];
     data3.delegate = self;
-
 }
 
 -(void)valueChanged:(CGFloat)newvalue withTag:(NSInteger)tag

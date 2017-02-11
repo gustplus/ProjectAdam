@@ -37,38 +37,6 @@
 
 -(void)setValue:(float)value;
 
-@end
-
-typedef NS_ENUM(NSUInteger, SlideState)
-{
-    kStateNone,
-    kStateUp,
-    kStateDown,
-    kStateReachBottom,
-    kStateReachTop
-};
-
-@interface CircleSlideWrapper : NSObject
-
-@property(strong, nonatomic)CircleSlideData *data;
-@property(assign, nonatomic)CGFloat lineWidth;
-@property(assign, nonatomic)CGPoint center;
-@property(assign, nonatomic)CGFloat radius;
-@property(assign, nonatomic)Color color;
-@property(assign, nonatomic)SlideState state;
-@property(assign, nonatomic)NSInteger preAngle;
-
--(void)setColorWithR:(float)red G:(float)green B:(float)blue;
-
--(BOOL) isPointIn:(CGPoint)point;
--(CGPoint)headPoint;
--(NSInteger)pointAngle:(CGPoint)point;
-
--(void)beginTouch:(CGPoint) point;
--(void)moveTouch:(CGPoint) point;
--(void)endTouch:(CGPoint) point;
-
--(NSInteger)getStartAngle;
--(NSInteger)getEndAngle;
+-(void)setValueEnd:(float)value;
 
 @end

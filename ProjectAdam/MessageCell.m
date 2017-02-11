@@ -21,7 +21,7 @@
     return self;
 }
 
--(void)setMsg:(ChatMessage *)msg
+-(void)setMsg:(BaseChatMessage *)msg
 {
     _msg = msg;
     switch (msg.type)
@@ -35,8 +35,9 @@
     }
 }
 
--(void)showTextMsg:(ChatMessage *)msg
+-(void)showTextMsg:(BaseChatMessage *)msg
 {
+    TextChatMessage *txtMsg = (TextChatMessage *)msg;
     for (UIView *view in [self subviews])
     {
         [view removeFromSuperview];
@@ -45,7 +46,7 @@
     CGFloat screenWidth = ScreenWidth;
     
     UIImageView *contextBack = [[UIImageView alloc] init];
-    CGSize textSize = [msg getMessageTextSizeWithWidth:screenWidth - kTextMargin];
+    CGSize textSize = [txtMsg getMessageTextSizeWithWidth:screenWidth - kTextMargin];
     
     UIImageView *userIcon = [[UIImageView alloc]init];
     UIImage *img = [UIImage imageNamed:@"user_icon"];
@@ -57,7 +58,7 @@
     loadingIcon.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
     
     CGRect iconRect = userIcon.frame;
-    if([msg.senderName isEqualToString: @"me"])
+    if( kMsgOwnerSelf == msg.owner )
     {
         iconRect.origin.x = screenWidth - kCellMarginHorizontal - iconRect.size.width;
         iconRect.origin.y = kCellMarginVertical;
@@ -72,7 +73,7 @@
         iconRect.origin.x = kCellMarginHorizontal;
         iconRect.origin.y = kCellMarginVertical;
         
-        contextBack.frame = CGRectMake(kCellMarginHorizontal + iconRect.size.width + kIconTextPadding, kCellMarginVertical , textSize.width + kTextPadding, textSize.height + kTextPadding);
+        contextBack.frame = CGRectMake(kCellMarginHorizontal + iconRect.size.width + kIconTextPadding, kCellMarginVertical , textSize.width + kTextPadding, textSize.height + 2 * kTextPadding);
         contextBack.image = [[UIImage imageNamed:@"otherchat"]stretchableImageWithLeftCapWidth:10 topCapHeight:25];
         
         loadingIcon.frame = CGRectMake(contextBack.frame.origin.x + contextBack.frame.size.width + kIconTextPadding + loadingIcon.frame.size.width, contextBack.frame.origin.y + textSize.height * 0.5, loadingIcon.frame.size.width, loadingIcon.frame.size.height);
@@ -82,7 +83,7 @@
     
     CGRect textRect = CGRectMake(kTextPadding, kTextPadding, textSize.width, textSize.height);
     UILabel *label = [[UILabel alloc]initWithFrame:textRect];
-    label.text = msg.text;
+    label.text = txtMsg.text;
     label.numberOfLines = 0;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     

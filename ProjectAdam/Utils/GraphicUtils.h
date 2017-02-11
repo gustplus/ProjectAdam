@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class CircleSlideWrapper;
-
 typedef struct Color
 {
     float red;
@@ -20,12 +18,23 @@ typedef struct Color
 
 Color ColorMake(CGFloat red, CGFloat green, CGFloat blue);
 
+@interface CircleData : NSObject
+
+@property(assign, nonatomic) CGFloat lineWidth;
+@property(assign, nonatomic) CGPoint center;
+@property(assign, nonatomic) CGFloat radius;
+@property(assign, nonatomic) Color color;
+@property(assign, nonatomic) NSInteger startAngle;
+@property(assign, nonatomic) NSInteger endAngle;
+
+@end
+
 @interface GraphicUtils : NSObject
 
-+(void)DrawCircleSlide:(CircleSlideWrapper *)data withContext:(CGContextRef) context withLineWidth:(CGFloat)width withColor:(Color) color;
++(void)DrawCircleSlide:(CircleData *)data withContext:(CGContextRef) context withLineWidth:(CGFloat)width withColor:(Color) color;
 
-+(void)DrawCircle:(CircleSlideWrapper *)data withContext:(CGContextRef) context withColor:(Color) color withLineWidth:(CGFloat) lineWidth;
++(void)DrawCircle:(CircleData *)data withContext:(CGContextRef) context withColor:(Color) color withLineWidth:(CGFloat) lineWidth;
 
-+(void)DrawCircleSlider:(CircleSlideWrapper *)data withContext:(CGContextRef) context;
++(void)DrawCircleSlider:(CircleData *)data withContext:(CGContextRef) context;
 
 @end

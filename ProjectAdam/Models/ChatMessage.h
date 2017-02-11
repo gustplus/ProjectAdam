@@ -16,13 +16,44 @@ typedef NS_ENUM(NSInteger, MsgType)
     kMsgTypeVoice
 };
 
-@interface ChatMessage : NSObject
+typedef NS_ENUM(NSInteger, MsgState)
+{
+    kMsgStateUnknown,
+    kMsgStateSending,
+    kMsgStateReceiving,
+    kMsgStateSuc,
+    kMsgStateFail
+    
+};
 
-@property (assign, nonatomic) MsgType type;
+typedef NS_ENUM(NSInteger, MsgOwner)
+{
+    kMsgOwnerSelf,
+    kMsgOwnerOther
+};;
+
+@interface BaseChatMessage : NSObject
+
+@property (assign, nonatomic, readonly) MsgType type;
+@property (assign, nonatomic) MsgState state;
+@property (assign, nonatomic) MsgOwner owner;
 
 @property (strong, nonatomic) NSString *senderName;
+@property (strong, nonatomic) NSString *avatarUrl;  //头像url
+
+-(instancetype)initWithType:(MsgType) type;
+
+-(CGFloat)heightOfCell;
+
+@end
+
+@interface TextChatMessage : BaseChatMessage
 
 @property (strong, nonatomic) NSString *text;
+
+-(instancetype)init;
+
+-(CGFloat)heightOfCell;
 
 -(CGSize) getMessageTextSizeWithWidth:(CGFloat)width;
 

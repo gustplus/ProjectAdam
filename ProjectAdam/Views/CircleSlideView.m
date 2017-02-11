@@ -8,6 +8,139 @@
 
 #import "CircleSlideView.h"
 #import "MathUtils.h"
+#import "CircleSlideData.h"
+
+@implementation CircleSlideWrapper
+
+-(void)setColorWithR:(float)red G:(float)green B:(float)blue
+{
+    self.color = ColorMake(red, green, blue);
+}
+
+-(CGPoint)headPoint
+{
+    float angle = (self.data.value - self.data.min) / self.data.interval * 360;
+    angle = 90 - angle;     //translate angle to normal x-y coordinater
+    float rad = ANGLE_TO_RADIUS(angle);
+    float offsetX = cosf(rad) * self.radius;
+    float offsetY = sinf(rad) * self.radius;
+    return CGPointMake(self.center.x + offsetX, self.center.y - offsetY);
+}
+
+-(BOOL) isPointIn:(CGPoint)point
+{
+    CGPoint head = [self headPoint];
+    return [MathUtils isPoint:point InCircleAt:head WithRadius:self.lineWidth * 2];
+}
+
+-(NSInteger)pointAngle:(CGPoint)point
+{
+    float offsetX = point.x - self.center.x;
+    float offsetY = point.y - self.center.y;
+    float tan = offsetY / offsetX;
+    float rad = atanf(tan);
+    NSInteger angle = (NSInteger)RADIUS_TO_ANGLE(rad);
+    if(offsetX < 0)
+    {
+        angle += 180;
+    }
+    return 90 + angle;
+}
+
+-(void)beginTouch:(CGPoint) point
+{
+    float val = self.data.value - self.data.min;
+    self.preAngle = (NSUInteger)(val / self.data.interval * 360);
+    if(self.preAngle == 0)
+    {
+        self.state = kStateReachBottom;
+    }
+    else if(self.preAngle == 360)
+    {
+        self.state = kStateReachTop;
+    }
+}
+
+-(NSInteger)calculateFinalAngle:(NSInteger) angle
+{
+    if(self.state == kStateUp && angle < 90 && self.preAngle > 270)
+    {
+        self.state = kStateReachTop;
+        angle = 360;
+    }
+    else if(self.state == kStateDown && (angle - self.preAngle) > 180)
+    {
+        self.state = kStateReachBottom;
+        angle = 0;
+    }
+    else if(self.state == kStateReachTop)
+    {
+        if(angle > 270)
+        {
+            self.state = kStateDown;
+        }
+        else
+        {
+            angle = 360;
+        }
+    }
+    else if(self.state == kStateReachBottom)
+    {
+        if(angle < 90)
+        {
+            self.state = kStateUp;
+        }
+        else
+        {
+            angle = 0;
+        }
+    }
+    
+    if(self.preAngle < angle)
+    {
+        self.state = kStateUp;
+    }
+    else if(self.preAngle > angle)
+    {
+        self.state = kStateDown;
+    }
+    return angle;
+}
+
+-(void)moveTouch:(CGPoint) point
+{
+    NSInteger angle = [self pointAngle:point];
+    
+    angle = [self calculateFinalAngle:angle];
+    
+    self.data.value = self.data.min + self.data.interval * angle / 360;
+    self.preAngle = angle;
+}
+
+-(void)endTouch:(CGPoint) point
+{
+    NSInteger angle = [self pointAngle:point];
+    
+    angle = [self calculateFinalAngle:angle];
+    
+    [self.data setValueEnd: self.data.min + self.data.interval * angle / 360 ];
+    self.state = kStateNone;
+    
+}
+
+-(NSInteger)startAngle
+{
+    return [MathUtils getAngleInCGContext:0];
+}
+
+-(NSInteger)endAngle
+{
+    float val = self.data.value - self.data.min;
+    NSUInteger angle = (NSUInteger)(val / self.data.interval * 360);
+    return [MathUtils getAngleInCGContext:angle];
+}
+
+@end
 
 @interface CircleSlideView()
 
@@ -64,6 +197,32 @@
     [self setNeedsDisplay];
 }
 
+-(void)updateSliders
+{
+    NSInteger count = [self.sliders count];
+    float width = 0;
+    if(self.frame.size.width > self.frame.size.height)
+    {
+        width = self.frame.size.height;
+    }
+    else
+    {
+        width = self.frame.size.width;
+    }
+    
+    for(int idx = 0; idx < count; ++idx)
+    {
+        CircleSlideWrapper *wrapper = [self.sliders objectAtIndex:idx];
+        wrapper.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+    }
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [self updateSliders];
+}
 
 - (void)drawRect:(CGRect)rect
 {

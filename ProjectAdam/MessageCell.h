@@ -8,22 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ChatMessage.h"
-
-const static NSInteger kTextMargin = 200;
-
-const static NSInteger kCellMarginHorizontal = 20;
-const static NSInteger kCellMarginVertical = 30;
-
-const static NSInteger kIconTextPadding = 10;
-
-const static NSInteger kTextPadding = 10;
+#import "Config.h"
 
 @interface MessageCell : UITableViewCell
 
-@property (strong, nonatomic, nonnull)ChatMessage *msg;
+@property (strong, nonatomic, nonnull)BaseChatMessage *msg;
 
 - (instancetype _Nonnull)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier;
 
--(void) setMsg:(ChatMessage * _Nonnull)msg;
+-(void) setMsg:(BaseChatMessage * _Nonnull)msg;
 
 @end

@@ -16,13 +16,17 @@ Color ColorMake(CGFloat red, CGFloat green, CGFloat blue)
     return c;
 }
 
+@implementation CircleData
+
+@end
+
 @implementation GraphicUtils
 
-+(void)DrawCircleSlide:(CircleSlideWrapper *)data withContext:(CGContextRef) context withLineWidth:(CGFloat)lineWidth withColor:(Color) color
++(void)DrawCircleSlide:(CircleData *)data withContext:(CGContextRef) context withLineWidth:(CGFloat)lineWidth withColor:(Color) color
 {
     CGContextBeginPath(context);
-    NSUInteger startAngle = [data getStartAngle];
-    NSUInteger endAngle = [data getEndAngle];
+    NSUInteger startAngle = data.startAngle;
+    NSUInteger endAngle = data.endAngle;
     
     if(startAngle == endAngle)
     {
@@ -36,7 +40,7 @@ Color ColorMake(CGFloat red, CGFloat green, CGFloat blue)
 
 }
 
-+(void)DrawCircle:(CircleSlideWrapper *)data withContext:(CGContextRef) context withColor:(Color) color withLineWidth:(CGFloat) lineWidth
++(void)DrawCircle:(CircleData *)data withContext:(CGContextRef) context withColor:(Color) color withLineWidth:(CGFloat) lineWidth
 {
     CGContextSetRGBStrokeColor(context, color.red, color.green, color.blue, 1);
     CGContextSetLineWidth(context, lineWidth);
@@ -45,11 +49,11 @@ Color ColorMake(CGFloat red, CGFloat green, CGFloat blue)
 }
 
 
-+(void)DrawCircleSlider:(CircleSlideWrapper *)data withContext:(CGContextRef) context
++(void)DrawCircleSlider:(CircleData *)data withContext:(CGContextRef) context
 {
     CGContextBeginPath(context);
-    NSUInteger startAngle = [data getStartAngle];
-    NSUInteger endAngle = [data getEndAngle];
+    NSUInteger startAngle = data.startAngle;
+    NSUInteger endAngle = data.endAngle;
     
     if(startAngle == endAngle)
     {
@@ -60,7 +64,6 @@ Color ColorMake(CGFloat red, CGFloat green, CGFloat blue)
     CGContextSetRGBStrokeColor(context, data.color.red, data.color.green, data.color.blue, 1);
     CGContextSetLineWidth(context, data.lineWidth);
     CGContextStrokePath(context);
-
 }
 
 @end
