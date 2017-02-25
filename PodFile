@@ -1,0 +1,5 @@
+platform :ios, '10.1'
+target 'ProjectAdam' do
+pod 'Masonry'
+pod 'SDWebImage', '~>3.8'
+end

@@ -13,6 +13,8 @@
 #import "Marco.h"
 #import "VoiceView.h"
 #import "MessageCell.h"
+#import "NewsHubViewController.h"
+#import "NewsHubPresentationController.h"
 
 const static int kVoiceViewWidth = 200;
 const static int kVoiceViewHeight = 170;
@@ -27,6 +29,10 @@ const static int kVoiceViewHeight = 170;
 @property (assign, nonatomic) BOOL showingKeyboard;
 @property (strong, nonatomic) SpeechRecognizer *recognizer;
 @property (strong, nonatomic) NSLayoutConstraint *chatbarBottomConstraint;
+@property (strong, nonatomic) NewsHubPresentationController *transitioningController;
+
+@property (strong, nonatomic) UIScreenEdgePanGestureRecognizer *swipeRecognizer;
+
 @end
 
 @implementation ChatViewController
@@ -36,7 +42,8 @@ const static int kVoiceViewHeight = 170;
     
     self.title = @"Adam";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    UIBarButtonItem *settingBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"setting_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(settingAction:)];
+    UIBarButtonItem *settingBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(settingAction:)];
+//    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: @"setting_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(settingAction:)];
     self.navigationItem.rightBarButtonItem = settingBtn;
     
     self.showingKeyboard = NO;
@@ -50,7 +57,7 @@ const static int kVoiceViewHeight = 170;
     [self.tableView registerClass:[MessageCell class] forCellReuseIdentifier:kChatMessageIdentifier];
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
-    [self.tableView addGestureRecognizer:tapRecognizer];
+    [self.view addGestureRecognizer:tapRecognizer];
     [self.view addSubview:self.tableView];
     
     self.toolbar = [[ChatBarView alloc] initWithFrame:CGRectZero];
@@ -60,13 +67,28 @@ const static int kVoiceViewHeight = 170;
     self.recognizer = [SpeechRecognizer sharedInstance];
     
     [self setupConstraints];
-    [self addKeyoardStateListener];
     
     TextChatMessage *welcomeMsg = [[TextChatMessage alloc]init];
     welcomeMsg.senderName = @"adam";
     welcomeMsg.owner = kMsgOwnerOther;
     welcomeMsg.text = @"hello!";
     [self.dataModel getMessage:welcomeMsg];
+    
+    self.swipeRecognizer = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
+    self.swipeRecognizer.edges = UIRectEdgeRight;
+    [self.view addGestureRecognizer:self.swipeRecognizer];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
 -(void)settingAction:(id) sender
@@ -80,6 +102,19 @@ const static int kVoiceViewHeight = 170;
 -(void)tap:(UITapGestureRecognizer *)recognizer
 {
     [self.toolbar endEdit];
+}
+
+-(void)swipe:(UIScreenEdgePanGestureRecognizer *)recognizer
+{
+    if(recognizer.state == UIGestureRecognizerStateBegan)
+    {
+        NewsHubViewController *dest = [[NewsHubViewController alloc]init];
+        self.transitioningController = [[NewsHubPresentationController alloc]initWithPresentedViewController:dest presentingViewController:self];
+        self.transitioningController.recognizer = self.swipeRecognizer;
+        dest.transitioningDelegate = self.transitioningController;
+        dest.modalPresentationStyle = UIModalPresentationCustom;
+        [self presentViewController:dest animated:YES completion:nil];
+    }
 }
 
 -(void)setupConstraints
@@ -110,18 +145,6 @@ const static int kVoiceViewHeight = 170;
     [self.view addConstraint:toolbarRightConstraint];
 }
 
--(void)addKeyoardStateListener
-{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-}
-
 -(void)tableViewScrollToBottom
 {
     NSUInteger count = [self.dataModel tableView:self.tableView numberOfRowsInSection:0];
@@ -136,6 +159,15 @@ const static int kVoiceViewHeight = 170;
 {
     return [self.dataModel heightOfIndexPath:indexPath];
 }
+
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CGAffineTransform translate = CGAffineTransformMake(1, 0, 0, 1, ScreenWidth, 0);
+//    cell.transform = translate;
+//    [UIView animateWithDuration: 0.6 animations:^{
+//        cell.transform = CGAffineTransformIdentity;
+//    }];
+//}
 
 #pragma mark - Orientation
 
@@ -178,31 +210,42 @@ const static int kVoiceViewHeight = 170;
     }
 }
 
--(void)onStart
+-(VoiceView *)voiceView
 {
-    if(!self.voiceView)
+    if(!_voiceView)
     {
         self.maskView = [[UIView alloc] initWithFrame:self.view.frame];
         [self.view addSubview:self.maskView];
         
         CGFloat screenWidth = ScreenWidth;
         CGFloat screenHeight = ScreenHeight - TOPBAR_HEIGHT;
-        self.voiceView = [[VoiceView alloc]initWithFrame:CGRectMake((screenWidth - kVoiceViewWidth) * 0.5, (screenHeight - kVoiceViewHeight) * 0.5, kVoiceViewWidth, kVoiceViewHeight)];
         
-        self.voiceView.layer.cornerRadius = 10;
-        self.voiceView.layer.masksToBounds = YES;
-        self.voiceView.style = VoiceViewStyleBottom;
-        self.voiceView.slotCount = 20;
-        self.voiceView.slotPadding = 2;
-        [self.view addSubview:self.voiceView];
+        UIView *shadowView = [[UIView alloc]initWithFrame:CGRectMake((screenWidth - kVoiceViewWidth) * 0.5  + 10, (screenHeight - kVoiceViewHeight) * 0.5 + 10, kVoiceViewWidth - 20, kVoiceViewHeight - 20)];
+        shadowView.backgroundColor = [UIColor blackColor];
+        shadowView.layer.shadowRadius = 10;
+        shadowView.layer.shadowOffset = CGSizeMake(15, 15);
+        shadowView.layer.shadowOpacity = 0.6;
+        shadowView.layer.shadowColor = [[UIColor blackColor]CGColor];
+        [self.maskView addSubview:shadowView];
+        
+        _voiceView = [[VoiceView alloc]initWithFrame: CGRectMake((screenWidth - kVoiceViewWidth) * 0.5, (screenHeight - kVoiceViewHeight) * 0.5, kVoiceViewWidth, kVoiceViewHeight)];
+        _voiceView.layer.cornerRadius = 10;
+        _voiceView.layer.masksToBounds = YES;
+        _voiceView.style = VoiceViewStyleBottom;
+        _voiceView.slotCount = 20;
+        _voiceView.slotPadding = 2;
+        [self.maskView addSubview:_voiceView];
     }
+    return _voiceView;
+}
+
+-(void)onStart
+{
     self.maskView.hidden = NO;
-    self.voiceView.hidden = NO;
 }
 
 -(void)onEnd
 {
-    self.voiceView.hidden = YES;
     self.maskView.hidden = YES;
 }
 
@@ -241,15 +284,5 @@ const static int kVoiceViewHeight = 170;
 {
     [self sendTextMessage:msg];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

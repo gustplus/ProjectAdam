@@ -36,8 +36,8 @@ typedef NS_ENUM(NSUInteger, SlideState)
 -(void)moveTouch:(CGPoint) point;
 -(void)endTouch:(CGPoint) point;
 
--(NSInteger)getStartAngle;
--(NSInteger)getEndAngle;
+-(NSInteger)startAngle;
+-(NSInteger)endAngle;
 
 @end
 
