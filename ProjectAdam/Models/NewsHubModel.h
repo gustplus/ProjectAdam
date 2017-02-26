@@ -13,6 +13,8 @@ static NSString *const NewsTypeWeather = @"NewsTypeWeather";
 static NSString *const NewsTypeText = @"NewsTypeText";
 static NSString *const NewsTypePic = @"NewsTypePic";
 
+@class BaseNewsCell;
+
 @interface NewsData : NSObject
 
 @property (strong, nonatomic) NSString *title;
@@ -24,13 +26,19 @@ static NSString *const NewsTypePic = @"NewsTypePic";
 
 @end
 
-@interface NewsHubModel : NSObject <UITableViewDataSource>
+@interface NewsHubModel : NSObject
 
 -(instancetype)init;
 
+-(NewsData *)dataAt:(NSIndexPath *) indexPath;
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+
+-(BaseNewsCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 -(void)addNews:(NewsData *)news;
 -(void)clearNews;
-
--(void)setWeather:(NewsData *)weather;
 
 @end

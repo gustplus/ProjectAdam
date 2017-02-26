@@ -15,6 +15,8 @@ const static CGFloat kNewsCellHeight = 200;
 
 @interface BaseNewsCell : UITableViewCell
 
+@property (strong, nonatomic) UIImageView *img;
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 -(void)setNews:(NewsData *)data;

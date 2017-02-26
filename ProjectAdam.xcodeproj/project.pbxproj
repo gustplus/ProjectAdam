@@ -68,12 +68,15 @@
 		6D66F4FE1E6160E4000A9F39 /* RefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D66F4FD1E6160E4000A9F39 /* RefreshHeaderView.xib */; };
 		6D66F5011E616112000A9F39 /* RefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66F5001E616112000A9F39 /* RefreshHeaderView.m */; };
 		6D66F5041E618888000A9F39 /* FullScreenImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66F5031E618888000A9F39 /* FullScreenImageView.m */; };
+		6D66F50A1E61E002000A9F39 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66F5091E61E002000A9F39 /* MessageCell.m */; };
+		6D66F50D1E61E02A000A9F39 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66F50C1E61E02A000A9F39 /* SettingViewController.m */; };
+		6D66F5101E61E080000A9F39 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66F50F1E61E080000A9F39 /* NewsDetailViewController.m */; };
 		6D69A5441E4CAB1600B72B70 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D69A5431E4CAB1600B72B70 /* ChatViewController.m */; };
 		6D6D6B691E420A190035E4C3 /* CircleSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B681E420A190035E4C3 /* CircleSlideView.m */; };
 		6D6D6B6D1E420B240035E4C3 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B6C1E420B240035E4C3 /* MathUtils.m */; };
 		6D6D6B711E420F720035E4C3 /* CircleSlideData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B701E420F720035E4C3 /* CircleSlideData.m */; };
+		6D6E5DB01E62885000B6D8D4 /* NewsContentCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E5DAF1E62885000B6D8D4 /* NewsContentCells.m */; };
 		6D74E2A81E4326A900DB8444 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2A71E4326A900DB8444 /* ChatMessage.m */; };
-		6D74E2AE1E43361100DB8444 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74E2AD1E43361100DB8444 /* MessageCell.m */; };
 		6D74E2B81E4361F200DB8444 /* wechatback1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B41E4361F200DB8444 /* wechatback1@2x.png */; };
 		6D74E2B91E4361F200DB8444 /* wechatback1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B51E4361F200DB8444 /* wechatback1@3x.png */; };
 		6D74E2BA1E4361F200DB8444 /* wechatback2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D74E2B61E4361F200DB8444 /* wechatback2@2x.png */; };
@@ -87,7 +90,6 @@
 		6D831D7C1E4E253000F41C6D /* GraphicUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D6B731E421B260035E4C3 /* GraphicUtils.m */; };
 		6DAFB9531E09697900E2DE85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9521E09697900E2DE85 /* main.m */; };
 		6DAFB9561E09697900E2DE85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9551E09697900E2DE85 /* AppDelegate.m */; };
-		6DAFB9591E09697900E2DE85 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB9581E09697900E2DE85 /* SettingViewController.m */; };
 		6DAFB95C1E09697900E2DE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95A1E09697900E2DE85 /* Main.storyboard */; };
 		6DAFB95E1E09697900E2DE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95D1E09697900E2DE85 /* Assets.xcassets */; };
 		6DAFB9611E09697900E2DE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAFB95F1E09697900E2DE85 /* LaunchScreen.storyboard */; };
@@ -185,6 +187,12 @@
 		6D66F5001E616112000A9F39 /* RefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefreshHeaderView.m; path = Views/RefreshHeaderView.m; sourceTree = "<group>"; };
 		6D66F5021E618888000A9F39 /* FullScreenImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullScreenImageView.h; path = Views/FullScreenImageView.h; sourceTree = "<group>"; };
 		6D66F5031E618888000A9F39 /* FullScreenImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullScreenImageView.m; path = Views/FullScreenImageView.m; sourceTree = "<group>"; };
+		6D66F5081E61E002000A9F39 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageCell.h; path = Views/MessageCell.h; sourceTree = "<group>"; };
+		6D66F5091E61E002000A9F39 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageCell.m; path = Views/MessageCell.m; sourceTree = "<group>"; };
+		6D66F50B1E61E02A000A9F39 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Controllers/SettingViewController.h; sourceTree = "<group>"; };
+		6D66F50C1E61E02A000A9F39 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Controllers/SettingViewController.m; sourceTree = "<group>"; };
+		6D66F50E1E61E080000A9F39 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsDetailViewController.h; path = Controllers/NewsDetailViewController.h; sourceTree = "<group>"; };
+		6D66F50F1E61E080000A9F39 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsDetailViewController.m; path = Controllers/NewsDetailViewController.m; sourceTree = "<group>"; };
 		6D69A5421E4CAB1600B72B70 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = Controllers/ChatViewController.h; sourceTree = "<group>"; };
 		6D69A5431E4CAB1600B72B70 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = Controllers/ChatViewController.m; sourceTree = "<group>"; };
 		6D6D6B671E420A190035E4C3 /* CircleSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleSlideView.h; path = Views/CircleSlideView.h; sourceTree = "<group>"; };
@@ -195,10 +203,10 @@
 		6D6D6B701E420F720035E4C3 /* CircleSlideData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleSlideData.m; path = Models/CircleSlideData.m; sourceTree = "<group>"; };
 		6D6D6B721E421B260035E4C3 /* GraphicUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicUtils.h; path = Utils/GraphicUtils.h; sourceTree = "<group>"; };
 		6D6D6B731E421B260035E4C3 /* GraphicUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphicUtils.m; path = Utils/GraphicUtils.m; sourceTree = "<group>"; };
+		6D6E5DAE1E62885000B6D8D4 /* NewsContentCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsContentCells.h; path = Views/NewsContentCells.h; sourceTree = "<group>"; };
+		6D6E5DAF1E62885000B6D8D4 /* NewsContentCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsContentCells.m; path = Views/NewsContentCells.m; sourceTree = "<group>"; };
 		6D74E2A61E4326A900DB8444 /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatMessage.h; path = Models/ChatMessage.h; sourceTree = "<group>"; };
 		6D74E2A71E4326A900DB8444 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatMessage.m; path = Models/ChatMessage.m; sourceTree = "<group>"; };
-		6D74E2AC1E43361100DB8444 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
-		6D74E2AD1E43361100DB8444 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		6D74E2B41E4361F200DB8444 /* wechatback1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback1@2x.png"; path = "Images/wechatback1@2x.png"; sourceTree = "<group>"; };
 		6D74E2B51E4361F200DB8444 /* wechatback1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback1@3x.png"; path = "Images/wechatback1@3x.png"; sourceTree = "<group>"; };
 		6D74E2B61E4361F200DB8444 /* wechatback2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechatback2@2x.png"; path = "Images/wechatback2@2x.png"; sourceTree = "<group>"; };
@@ -216,8 +224,6 @@
 		6DAFB9521E09697900E2DE85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DAFB9541E09697900E2DE85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DAFB9551E09697900E2DE85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6DAFB9571E09697900E2DE85 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		6DAFB9581E09697900E2DE85 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		6DAFB95B1E09697900E2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DAFB95D1E09697900E2DE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DAFB9601E09697900E2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -343,12 +349,14 @@
 		6D69A5411E4CA9B600B72B70 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6DAFB9571E09697900E2DE85 /* SettingViewController.h */,
-				6DAFB9581E09697900E2DE85 /* SettingViewController.m */,
+				6D66F50B1E61E02A000A9F39 /* SettingViewController.h */,
+				6D66F50C1E61E02A000A9F39 /* SettingViewController.m */,
 				6D69A5421E4CAB1600B72B70 /* ChatViewController.h */,
 				6D69A5431E4CAB1600B72B70 /* ChatViewController.m */,
 				6D3BD7A91E4EAFAD009FFA99 /* NewsHubViewController.h */,
 				6D3BD7AA1E4EAFAD009FFA99 /* NewsHubViewController.m */,
+				6D66F50E1E61E080000A9F39 /* NewsDetailViewController.h */,
+				6D66F50F1E61E080000A9F39 /* NewsDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -356,8 +364,8 @@
 		6D6D6B661E4209EF0035E4C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6D74E2AC1E43361100DB8444 /* MessageCell.h */,
-				6D74E2AD1E43361100DB8444 /* MessageCell.m */,
+				6D66F5081E61E002000A9F39 /* MessageCell.h */,
+				6D66F5091E61E002000A9F39 /* MessageCell.m */,
 				6D6D6B671E420A190035E4C3 /* CircleSlideView.h */,
 				6D6D6B681E420A190035E4C3 /* CircleSlideView.m */,
 				6D7B8A5A1E44D0F10095FA73 /* VoiceView.h */,
@@ -372,6 +380,8 @@
 				6D66F5001E616112000A9F39 /* RefreshHeaderView.m */,
 				6D66F5021E618888000A9F39 /* FullScreenImageView.h */,
 				6D66F5031E618888000A9F39 /* FullScreenImageView.m */,
+				6D6E5DAE1E62885000B6D8D4 /* NewsContentCells.h */,
+				6D6E5DAF1E62885000B6D8D4 /* NewsContentCells.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -678,16 +688,18 @@
 				6D66F5011E616112000A9F39 /* RefreshHeaderView.m in Sources */,
 				6D33F3671E4B68C9003B66B2 /* Config.h in Sources */,
 				6D7B8A5F1E44D21D0095FA73 /* LoopQueue.m in Sources */,
+				6D66F5101E61E080000A9F39 /* NewsDetailViewController.m in Sources */,
 				6D69A5441E4CAB1600B72B70 /* ChatViewController.m in Sources */,
 				6D3BD7BE1E4F6312009FFA99 /* NewsHubPresentationController.m in Sources */,
 				6D48E2131E59DF450001A3CC /* WeatherCell.m in Sources */,
 				6D33F3651E4B62DB003B66B2 /* MessageServer.m in Sources */,
 				6D74E2BD1E43697300DB8444 /* Marco.h in Sources */,
-				6D74E2AE1E43361100DB8444 /* MessageCell.m in Sources */,
 				6D3BD7B11E4F4ABE009FFA99 /* NewsHubModel.m in Sources */,
 				6D3798F91E50A47000195BF7 /* HttpUtils.m in Sources */,
-				6DAFB9591E09697900E2DE85 /* SettingViewController.m in Sources */,
+				6D6E5DB01E62885000B6D8D4 /* NewsContentCells.m in Sources */,
+				6D66F50A1E61E002000A9F39 /* MessageCell.m in Sources */,
 				6D6D6B691E420A190035E4C3 /* CircleSlideView.m in Sources */,
+				6D66F50D1E61E02A000A9F39 /* SettingViewController.m in Sources */,
 				6D33F3621E4B593F003B66B2 /* ChatViewModel.m in Sources */,
 				6D384FD91E48DB32006EB5F8 /* ViewUtils.m in Sources */,
 				6D6D6B711E420F720035E4C3 /* CircleSlideData.m in Sources */,

@@ -12,18 +12,22 @@
 #import "NewsHubModel.h"
 #import "Marco.h"
 #import "NewsHubPresentationController.h"
+#import "NewsDetailViewController.h"
 #import "WeatherService.h"
 #import "NewsService.h"
 #import "Masonry.h"
 #import "MathUtils.h"
 #import "RefreshHeaderView.h"
 #import "ViewUtils.h"
+#import "FullScreenImageView.h"
 
 @interface NewsHubViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIToolbar *toolbar;
 @property (strong, nonatomic) UIBarButtonItem *settingBtn;
+
+@property (strong, nonatomic) FullScreenImageView *fullscreenImg;
 
 @property (strong, nonatomic) NewsHubModel *dataSource;
 
@@ -41,6 +45,8 @@
     
     [self setupUI];
     [self setupContraints];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self.tableView registerClass:[BaseNewsCell class] forCellReuseIdentifier:NewsTypeText];
     
@@ -67,8 +73,7 @@
         }
         else
         {
-            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if(![dataString isEqualToString:@""])
+            if(data.length > 0)
             {
                 @try
                 {
@@ -93,11 +98,6 @@
 
 }
 
--(void) fullScreenImage: (UIImage *)image
-{
-    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -116,7 +116,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
-    self.tableView.dataSource = self.dataSource;
+    self.tableView.dataSource = self;
     WeatherCell *weatherCell = [[WeatherCell alloc]initWithFrame:CGRectMake(0, 0, 0, kWeatherCellHeight)];
     self.tableView.tableHeaderView = weatherCell;
     self.tableView.rowHeight = 230;
@@ -176,7 +176,68 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.y;
-    [ViewUtils SetView:self.refreshView y:-100 - offset];
+    [ViewUtils SetView:self.refreshView y:-(100 + offset)];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.dataSource tableView:tableView numberOfRowsInSection:section];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.dataSource numberOfSectionsInTableView:tableView];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BaseNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"newscell"];
+    if(!cell)
+    {
+        cell = [[BaseNewsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"newscell"];
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fullscreenImage:)];
+        [cell.img addGestureRecognizer:recognizer];
+    }
+    [cell setNews: [self.dataSource dataAt: indexPath]];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewsData *data = [self.dataSource dataAt:indexPath];
+    if(data && data.content)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        NewsDetailViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"news_detail"];
+        dest.id = data.content[@"id"];
+        dest.title = data.title;
+        [self.navigationController pushViewController:dest animated:YES];
+//        [self presentViewController:dest animated:YES completion:^(){
+//            [dest setNewsTitle:data.title];
+//        }];
+    }
+}
+
+-(void)fullscreenImage:(UITapGestureRecognizer *)recognizer
+{
+    CGPoint loc = [recognizer locationInView:self.tableView];
+    NSIndexPath *indexpath = [self.tableView indexPathForRowAtPoint:loc];
+    BaseNewsCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexpath];
+    UIImageView *imgView = selectedCell.img;
+    
+    self.fullscreenImg.backgroundColor = [UIColor blackColor];
+    [self.fullscreenImg fullScreenImage:imgView];
+}
+
+-(FullScreenImageView *)fullscreenImg
+{
+    if(!_fullscreenImg)
+    {
+        _fullscreenImg = [[FullScreenImageView alloc]init];
+        [self.navigationController.view addSubview:_fullscreenImg];
+    }
+    return _fullscreenImg;
 }
 
 @end

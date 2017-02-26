@@ -113,7 +113,8 @@ const static int kVoiceViewHeight = 170;
         self.transitioningController.recognizer = self.swipeRecognizer;
         dest.transitioningDelegate = self.transitioningController;
         dest.modalPresentationStyle = UIModalPresentationCustom;
-        [self presentViewController:dest animated:YES completion:nil];
+//        [self presentViewController:dest animated:YES completion:nil];
+        [self.navigationController pushViewController:dest animated:YES];
     }
 }
 

@@ -306,7 +306,11 @@ const static int kIconLabelPadding = 10;
 
 -(void)hideLoading
 {
-    _loadingView.hidden = YES;
+    if(_loadingView)
+    {
+        [_loadingView removeFromSuperview];
+        _loadingView = nil;
+    }
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import "NewsHubModel.h"
-
 #import "BaseNewsCell.h"
 
 @implementation NewsData
@@ -52,9 +51,13 @@
     return self;
 }
 
+-(NewsData *)dataAt:(NSIndexPath *) indexPath
+{
+    return [self.news objectAtIndex:indexPath.row];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.news.count;
     return self.news.count;
 }
 
@@ -63,7 +66,7 @@
     return 1;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(BaseNewsCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewsData *data = self.news[indexPath.row];
     BaseNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:data.type forIndexPath:indexPath];
@@ -79,23 +82,6 @@
 -(void)clearNews
 {
     [self.news removeAllObjects];
-}
-
--(void)setWeather:(NewsData *)weather
-{
-    if([weather.type isEqualToString:NewsTypeWeather])
-    {
-        NewsData *first = [self.news objectAtIndex:0];
-        if(first && [first.type isEqualToString:NewsTypeWeather])
-        {
-            first.title = weather.title;
-            first.content = weather.content;
-        }
-        else
-        {
-            [self.news insertObject:weather atIndex:0];
-        }
-    }
 }
 
 @end

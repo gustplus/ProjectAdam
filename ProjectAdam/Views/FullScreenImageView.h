@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FullScreenImageView : UIImageView
+@interface FullScreenImageView : UIView
 
 -(instancetype) init;
 
--(void)FullScreenImage:(UIImageView *)view;
+-(void)fullScreenImage:(UIImageView *)imgView;
 
 @end

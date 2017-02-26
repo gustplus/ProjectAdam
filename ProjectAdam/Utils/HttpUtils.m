@@ -65,15 +65,25 @@
     
     if(params)
     {
-        if([[params allKeys] containsObject:kParamKeyTimeout])
+        if(params)
         {
-            timeout = [params[kParamKeyTimeout] integerValue];
-            NSMutableDictionary *dic = [params mutableCopy];
-            [dic removeObjectForKey:kParamKeyTimeout];
-            params = dic;
+            NSMutableString *paramStr = [[NSMutableString alloc]init];
+            for (NSString *key in params)
+            {
+                if(key == kParamKeyTimeout)
+                {
+                    timeout = [params[key] integerValue];
+                    continue;
+                }
+                
+                if(paramStr.length > 0)
+                {
+                    [paramStr appendString:@"&"];
+                }
+                [paramStr appendFormat:@"%@=%@", key, params[key]];
+            }
+            request.HTTPBody = [paramStr dataUsingEncoding:NSUTF8StringEncoding];
         }
-        
-        request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     }
     
     request.timeoutInterval = timeout;

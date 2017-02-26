@@ -99,14 +99,14 @@
     [self.containerView willRemoveSubview:self.maskView];
     self.maskView = nil;
 }
-
+/*
 -(CGRect)frameOfPresentedViewInContainerView
 {
     CGFloat screenWidth = ScreenWidth;
     CGFloat startX = ScreenWidth * 0.1;
     return CGRectMake(startX, 0, screenWidth - startX, ScreenHeight);
 }
-
+*/
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];

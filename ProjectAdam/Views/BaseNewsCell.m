@@ -19,7 +19,6 @@ const static NSInteger kTitleTopMargin = 20;
 @interface BaseNewsCell()
 
 @property (strong, nonatomic) UIView *background;
-@property (strong, nonatomic) UIImageView *img;
 @property (strong, nonatomic) UILabel *title;
 //@property (strong, nonatomic) UIActivityIndicatorView *loadingView;
 
@@ -53,10 +52,12 @@ const static NSInteger kTitleTopMargin = 20;
     self.title.font = [UIFont systemFontOfSize:14];
     self.title.numberOfLines = 2;
     self.title.textColor = [UIColor blackColor];
+    self.title.textAlignment = UITextAlignmentCenter;
     [self.background addSubview:self.title];
     
     self.img = [[UIImageView alloc]initWithFrame:CGRectZero];
     self.img.contentMode = UIViewContentModeScaleAspectFill;
+    self.img.userInteractionEnabled = YES;
     [self.background addSubview:self.img];
 }
 
