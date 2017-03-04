@@ -39,7 +39,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    CGFloat offsetY= scrollView.contentOffset.y;
 }
 
 -(void)setNewsTitle:(NSString *)title
