@@ -59,7 +59,7 @@ const static int kDefaultScale = 4;
     
     if(self.recognizeType == ReconizeTypeAnalog)
     {
-        BOOL bigChange = fabsf(value - lastVolume) >= 1;
+        BOOL bigChange = fabsf(value - lastVolume) >= 3;
         if(bigChange)
         {
             interpolationPercent-= 0.2f;
@@ -95,28 +95,39 @@ const static int kDefaultScale = 4;
     {
         case VoiceViewStyleBottom:
             y = rect.size.height - self.padding;
+            
+            for (NSUInteger i = 0; i < count; ++i)
+            {
+                int x = startPointX - i * stride;
+                float volume = node->data * self.slotScale;
+                CGContextFillRect(context, CGRectMake(x, y, slotWidth, -volume));
+                node = node->next;
+            }
+            
             break;
         case VoiceViewStyleTop:
             y = self.padding;
+            
+            for (NSUInteger i = 0; i < count; ++i)
+            {
+                int x = startPointX - i * stride;
+                float volume = node->data * self.slotScale;
+                CGContextFillRect(context, CGRectMake(x, y, slotWidth, volume));
+                node = node->next;
+            }
             break;
         case VoiceViewStyleMiddle:
         default:
             y = rect.size.height * 0.5;
+            
+            for (NSUInteger i = 0; i < count; ++i)
+            {
+                int x = startPointX - i * stride;
+                float volume = node->data * self.slotScale;
+                CGContextFillRect(context, CGRectMake(x, y - volume, slotWidth, volume * 2));
+                node = node->next;
+            }
             break;
-    }
-    
-    for (NSUInteger i = 0; i < count; ++i)
-    {
-        int x = startPointX - i * stride;
-        float volume = node->data * self.slotScale;
-        
-        CGContextFillRect(context, CGRectMake(x, y, slotWidth, -volume));
-        
-//        CGContextBeginPath(context);
-//        CGContextMoveToPoint(context, x, y);
-//        CGContextAddLineToPoint(context, x, y - volume * self.slotScale);
-//        CGContextStrokePath(context);
-        node = node->next;
     }
 }
 

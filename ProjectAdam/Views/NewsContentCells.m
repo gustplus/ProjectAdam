@@ -11,7 +11,8 @@
 #import "ViewUtils.h"
 
 @interface NewsContentImageCell()
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 @end
 
 @implementation NewsContentImageCell
@@ -29,12 +30,23 @@
 
 -(void)setImgUrl:(NSString *)url completeHander:(void(^)(UIImage *image))handler
 {
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        handler(image);
-//        CGFloat width = self.imgView.frame.size.width;
-//        CGFloat height = width / image.size.width * image.size.height;
-//        [ViewUtils SetView:self.imgView width:width height:height];
-    }];
+    SDWebImageManager *mamager = SDWebImageManager.sharedManager;
+    NSString *key = [mamager cacheKeyForURL:[NSURL URLWithString:url]];
+    UIImage *img = [mamager.imageCache imageFromMemoryCacheForKey:key];
+    if(img)
+    {
+        self.imgView.image = img;
+        CGFloat width = self.imgView.frame.size.width;
+        CGFloat height = width / img.size.width * img.size.height;
+        self.heightConstraint.constant = height;
+        [self layoutIfNeeded];
+    }
+    else
+    {
+        [self.imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            handler(image);
+        }];
+    }
 }
 
 @end
@@ -61,9 +73,9 @@
 -(void)setDesc:(NSString *)desc
 {
     self.descText.text  = desc;
-    CGSize size = [ViewUtils SizeOfText:desc withFont:self.descText.font withWidth:self.descText.frame.size.width];
-    self.heightContraint.constant = size.height + 10;
-    NSLog(@"%f", self.heightContraint.constant);
+    CGFloat width = self.descText.frame.size.width;
+    CGSize size = [ViewUtils SizeOfText:desc withFont:self.descText.font withWidth: width];
+    self.heightContraint.constant = size.height + 15;
     [self.contentView layoutIfNeeded];
 }
 
@@ -92,7 +104,7 @@
 {
     self.contentText.text = content;
     CGSize size = [ViewUtils SizeOfText:content withFont:self.contentText.font withWidth:self.contentText.frame.size.width];
-    self.heightContraint.constant = size.height + 10;
+    self.heightContraint.constant = size.height + 15;
     [self.contentView layoutIfNeeded];
 }
 

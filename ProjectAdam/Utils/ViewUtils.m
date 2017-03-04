@@ -38,6 +38,11 @@
     NSLog(@"frame %f %f %f %f", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
 }
 
++(void)dumpRect:(CGRect)bounds
+{
+    NSLog(@"bounds %f %f %f %f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
+}
+
 +(CGSize) SizeOfText:(NSString *)text withFont:(UIFont *)font withWidth:(CGFloat) width
 {
     NSDictionary *attrs = @{NSFontAttributeName : font};

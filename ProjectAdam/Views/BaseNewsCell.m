@@ -10,6 +10,7 @@
 #import "NewsHubModel.h"
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Marco.h"
 
 const static NSInteger kNewsCellMarginHorizontal = 10;
 const static NSInteger kNewsCellMarginVertical = 15;
@@ -80,9 +81,9 @@ const static NSInteger kTitleTopMargin = 20;
     [self.img mas_makeConstraints:^(MASConstraintMaker *maker)
      {
          maker.centerX.equalTo(self.background.mas_centerX).with.offset(0);
-         maker.top.equalTo(self.title.mas_bottom).with.offset(15);
-         maker.width.equalTo(@165).priorityHigh();
-         maker.height.equalTo(@100).priorityHigh();
+         maker.top.equalTo(self.title.mas_bottom).with.offset(40);
+         maker.width.equalTo(@(200)).priorityHigh();
+         maker.height.equalTo(@(121)).priorityHigh();
     }];
 }
 

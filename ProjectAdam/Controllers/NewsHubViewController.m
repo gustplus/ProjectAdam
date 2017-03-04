@@ -55,6 +55,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if(self.isInitialized)
     {
         return;
@@ -119,7 +120,7 @@
     self.tableView.dataSource = self;
     WeatherCell *weatherCell = [[WeatherCell alloc]initWithFrame:CGRectMake(0, 0, 0, kWeatherCellHeight)];
     self.tableView.tableHeaderView = weatherCell;
-    self.tableView.rowHeight = 230;
+    self.tableView.rowHeight = 300;
     
     [self.view addSubview:self.tableView];
     

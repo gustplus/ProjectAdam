@@ -16,7 +16,7 @@
 #import "NewsHubViewController.h"
 #import "NewsHubPresentationController.h"
 
-const static int kVoiceViewWidth = 200;
+const static int kVoiceViewWidth = 280;
 const static int kVoiceViewHeight = 170;
 
 @interface ChatViewController () <UITableViewDelegate, ChatViewDelegate, SpeechDelegate>
@@ -205,9 +205,9 @@ const static int kVoiceViewHeight = 170;
 -(void)onVolumeChanged:(float)volume
 {
     static int idx = 0;
-    if((idx++) % 20)
+    if((idx++) % 10)
     {
-        [self.voiceView setVolume:volume + 1];
+        [self.voiceView setVolume:volume + 0.1];
     }
 }
 
@@ -232,8 +232,9 @@ const static int kVoiceViewHeight = 170;
         _voiceView = [[VoiceView alloc]initWithFrame: CGRectMake((screenWidth - kVoiceViewWidth) * 0.5, (screenHeight - kVoiceViewHeight) * 0.5, kVoiceViewWidth, kVoiceViewHeight)];
         _voiceView.layer.cornerRadius = 10;
         _voiceView.layer.masksToBounds = YES;
-        _voiceView.style = VoiceViewStyleBottom;
-        _voiceView.slotCount = 20;
+        _voiceView.style = VoiceViewStyleMiddle;
+        _voiceView.slotScale = 3;
+        _voiceView.slotCount = 40;
         _voiceView.slotPadding = 2;
         [self.maskView addSubview:_voiceView];
     }

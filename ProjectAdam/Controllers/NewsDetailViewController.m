@@ -13,7 +13,7 @@
 #import "NewsContentCells.h"
 #import "FullScreenImageView.h"
 
-@interface NewsDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface NewsDetailViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeightContraint;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) FullScreenImageView *fullscreenImg;
@@ -28,11 +28,18 @@
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 200;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.allowsSelection = false;
+    
     self.data = [[NSMutableArray alloc]init];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
 }
 
 -(void)setNewsTitle:(NSString *)title
@@ -45,6 +52,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self setNewsTitle:self.title];
     
     [HttpUtils PostToUrl:@"http://192.168.1.108/adam/services/get_news.php" withEncoding:NSUTF8StringEncoding withParams:@{@"id" : self.id} withHeaders:nil selector:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
@@ -102,7 +111,7 @@
         {
             NewsContentImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"news_detail_img" forIndexPath:indexPath];
             [cell setImgUrl:rowData[key] completeHander:^(UIImage *img) {
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self performSelector:@selector(reloadCell:) withObject:indexPath afterDelay:0.1];
             }];
             UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fullscreenImage:)];
             [cell.imgView addGestureRecognizer:recognizer];
@@ -118,6 +127,15 @@
     }
     NewsImageDescCell *defaultCell = [self.tableView dequeueReusableCellWithIdentifier:@"news_img_desc" forIndexPath:indexPath];
     return defaultCell;
+}
+
+-(void)reloadCell:(NSIndexPath *)indexPath
+{
+    NSArray *visIndices = self.tableView.indexPathsForVisibleRows;
+    if([visIndices containsObject:indexPath])
+    {
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    };
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -19,6 +19,8 @@
 
 +(void)viewInfo:(UIView *)view;
 
++(void)dumpRect:(CGRect)bounds;
+
 +(CGSize) SizeOfText:(NSString *)text withFont:(UIFont *)font withWidth:(CGFloat) width;
 
 @end
